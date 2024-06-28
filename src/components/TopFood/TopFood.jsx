@@ -43,7 +43,7 @@ const TopFood = () => {
                                 <h1 className="text-xl font-semibold mb-2">{food?.foodName}</h1>
                                 <h2 className="text-gray-500 mb-2">{food?.foodCategory || 'not found'}</h2>
                                 <p className="text-[#FF5733] font-semibold mb-2">${food?.price.toFixed(2)}</p>
-                                <p className="text-[#FF5733] font-semibold mb-2">Order Count : {food?.orderCount}</p>
+                                <p className="text-[#FF5733] font-semibold mb-2">Order : {food?.orderCount}</p>
                                 <p className="text-[#FF5733] font-semibold mb-2">Quantity : {food?.quantity}</p>
                                 <NavLink to={`/details/${food._id}`}>
                                     <button className="bg-[#FF5733] hover:bg-orange-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring focus:border-orange-300 transition duration-300 ease-in-out">
