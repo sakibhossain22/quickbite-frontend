@@ -20,6 +20,8 @@ import FoodOrder from './components/PrivateRoute/FoodOrder/FoodOrder.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import EroorPage from './components/ErroPage/ErrorPage.jsx';
 import UpdateFood from './components/UpdateFood/UpdateFood.jsx';
+import Stripe from './components/Stripe/Stripe.jsx';
+import SSLCommerz from './components/SSLCommerz/SSLCommerz.jsx';
 
 
 const router = createBrowserRouter([
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
         path: '/update/:id',
         element: <UpdateFood></UpdateFood>,
         loader: ({ params }) => fetch(`https://quickbite-server.vercel.app/single/${params.id}`)
+      },
+      {
+        path : '/payment-stripe',
+        element : <Stripe></Stripe>
+      },
+      {
+        path : '/payment-sslcommerz',
+        element : <SSLCommerz></SSLCommerz>
       }
     ]
   }

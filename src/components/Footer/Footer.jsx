@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-neutral text-neutral-content">
+            <footer className="footer p-10 bg-black text-neutral-content">
                 <aside>
                     <div className="flex gap-5 items-center justify-center">
                         <img className="w-10 rounded-3xl " src="https://i.ibb.co/fGmBVTV/logo.jpg" alt="" />

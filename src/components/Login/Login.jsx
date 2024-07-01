@@ -81,24 +81,24 @@ const Login = () => {
             <div className="flex w-full gap-14 items-center justify-center my-10">
                 <div className="border lg:w-2/6 rounded-lg p-8">
                     <form onSubmit={handleEmailSign}>
-                        <h1 className="text-center text-black text-3xl font-bold uppercase my-5">Login Now</h1>
+                        <h1 className="text-center  text-3xl font-bold uppercase my-5">Login Now</h1>
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-600">Email</label>
+                            <label className="block text-sm font-medium ">Email</label>
                             <input
                                 type="email"
                                 name="email"
                                 placeholder="Type Your Email"
-                                className="bg-white mt-1 p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                                className=" mt-1 p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                                 required
                             />
                         </div>
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-600">Password</label>
+                            <label className="block text-sm font-medium ">Password</label>
                             <input
                                 type="password"
                                 name="password"
                                 placeholder="Type Your Password"
-                                className="bg-white mt-1 p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                                className=" mt-1 p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                                 required
                             />
                         </div>
@@ -107,9 +107,9 @@ const Login = () => {
                                 Login
                             </button>
                         </div>
-                        <p className="text-center text-black mb-4">Dont Have An Account? <NavLink className='text-white font-bold bg-green-600 px-2 py-1 rounded' to='/register'>Register</NavLink></p>
+                        <p className="text-center mb-4">Dont Have An Account? <NavLink className='text-white font-bold bg-green-600 px-2 py-1 rounded' to='/register'>Register</NavLink></p>
                     </form>
-                    <button onClick={HandleGoogleLogin} className='flex mx-auto items-center bg-white border lg:p-2 p-1 md:p-2 rounded-lg hover:bg-green-400 transition'>
+                    <button onClick={HandleGoogleLogin} className='flex mx-auto items-center border-2 lg:p-2 p-1 md:p-2 rounded-lg hover:bg-[#FF5733] hover:text-white transition'>
                         <img className="w-8" src="https://i.ibb.co/zbMdxWH/Google-G-Logo-svg.webp" alt="Google Logo" />
                         <p className="ml-2">Google</p>
                     </button>

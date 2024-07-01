@@ -15,7 +15,6 @@ const Home = () => {
             <TopFood></TopFood>
             <Invite></Invite>
             <AppDownload></AppDownload>
-            
         </div>
     );
 };

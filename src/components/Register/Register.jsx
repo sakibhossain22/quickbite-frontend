@@ -79,37 +79,37 @@ const Register = () => {
                 <h1 className="text-3xl font-bold text-center mb-6">Register Now</h1>
                 <form onSubmit={handleRegister}>
                     <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-600">Name</label>
+                        <label className="block text-sm font-medium">Name</label>
                         <input
                             type="text"
                             name="name"
                             placeholder="Type Your Name"
-                            className="mt-1 bg-white p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                            className="mt-1  p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                             required
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-600">Photo Url</label>
-                        <input type="text" name="photo" placeholder="Type Your Photo URL" className="mt-1 bg-white p-2 w-full border rounded focus:outline-none focus:border-indigo-500" required
+                        <label className="block text-sm font-medium ">Photo Url</label>
+                        <input type="text" name="photo" placeholder="Type Your Photo URL" className="mt-1  p-2 w-full border rounded focus:outline-none focus:border-indigo-500" required
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-600">Email</label>
+                        <label className="block text-sm font-medium ">Email</label>
                         <input
                             type="email"
                             name="email"
                             placeholder="Type Your Email"
-                            className="mt-1 bg-white p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                            className="mt-1  p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                             required
                         />
                     </div>
                     <div className="mb-6">
-                        <label className="block text-sm font-medium text-gray-600">Password</label>
+                        <label className="block text-sm font-medium ">Password</label>
                         <input
                             type="password"
                             name="password"
                             placeholder="Type Your Password"
-                            className="mt-1 bg-white p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                            className="mt-1  p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                             required
                         />
                     </div>
@@ -119,7 +119,7 @@ const Register = () => {
                         </button>
                     </div>
                 </form>
-                <p className="text-center text-gray-600">
+                <p className="text-center">
                     Already Have An Account? <NavLink className='text-white font-bold bg-green-600 px-2 py-1 rounded' to='/login'>Login</NavLink>
                 </p>
                 {error && <p className="text-red-500 text-sm mt-2">{error}</p>}

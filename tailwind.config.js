@@ -5,11 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        'lg-height': 'calc(100vh - 70px)', // Custom height class
+      },
+    },
   },
   daisyui: {
-    themes: ["light", "dark"], // or any other themes you want to include
+    themes: ["light", "dark"],
   },
   plugins: [require("daisyui")],
 }
-

@@ -20,14 +20,14 @@ const AppDownload = () => {
                                     <h1>Play Store</h1>
                                 </button>
                                 <button className='btn bg-yellow-400 lg:px-8'>
-                                   <FaApple></FaApple>
+                                    <FaApple></FaApple>
                                     <h1>Apple Store</h1>
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div className='w-1/2  hidden md:block lg:block flex-1'>
-                        <img className='w-3/4' src="https://tastyc.bslthemes.com/wp-content/uploads/2021/05/burger-950x962.png" alt="" />
+                        <img className='w-3/4' src="https://i.ibb.co/YbpTcWd/burger.png" alt="" />
                     </div>
                 </div>
             </div>

@@ -38,7 +38,7 @@ const TopFood = () => {
                  <div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
                         {foods?.slice(0, 6).map((food) => (
-                            <div key={food._id} className="bg-white p-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                            <div key={food._id} className=" border border-gray-600 p-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
                                 <img className="w-full h-48 object-cover mb-4 rounded-lg" src={food?.foodImage} alt={food?.foodName} />
                                 <h1 className="text-xl font-semibold mb-2">{food?.foodName}</h1>
                                 <h2 className="text-gray-500 mb-2">{food?.foodCategory || 'not found'}</h2>
@@ -46,7 +46,7 @@ const TopFood = () => {
                                 <p className="text-[#FF5733] font-semibold mb-2">Order : {food?.orderCount}</p>
                                 <p className="text-[#FF5733] font-semibold mb-2">Quantity : {food?.quantity}</p>
                                 <NavLink to={`/details/${food._id}`}>
-                                    <button className="bg-[#FF5733] hover:bg-orange-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring focus:border-orange-300 transition duration-300 ease-in-out">
+                                    <button className="bg-[#FF5733] w-full hover:bg-orange-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring focus:border-orange-300 transition duration-300 ease-in-out">
                                         Details
                                     </button>
                                 </NavLink>

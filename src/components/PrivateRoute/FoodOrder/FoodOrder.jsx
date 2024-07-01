@@ -13,10 +13,22 @@ const FoodOrder = () => {
     const [itemQuantity, setItemQuantity] = useState(orderData.quantity);
     const { user } = useContext(AuthContext);
     const date = moment().format('ll');
-
+    const [handleQuantity,setQuantity] = useState(0)
+    const handleUp = () => {
+        if(handleQuantity >= 0 ) {
+            setQuantity(handleQuantity + 1)
+        } 
+        return
+    }
+    const handleDown = () => {
+        if(handleQuantity >= 1 ) {
+            setQuantity(handleQuantity - 1)
+        } 
+        return
+    }
     const handleOrder = (e) => {
         e.preventDefault();
-        const quantityValue = parseInt(e.target.quantity.value);
+        const quantityValue = parseInt(handleQuantity);
         if (orderData.quantity === 0) {
             return Swal.fire({
                 icon: 'error',
@@ -95,24 +107,28 @@ const FoodOrder = () => {
             <div className="bg-[#FF5733] w-28 mx-auto mt-2 h-2"></div>
             <div className="grid lg:grid-cols-12 gap-5">
                 <div className="lg:col-span-7">
-                    <form onSubmit={handleOrder} className="card-body">
+                    <form onSubmit={handleOrder} className="px-3">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Food Name</span>
                             </label>
-                            <input defaultValue={orderData?.foodName} type="name" placeholder="Food Name" className="input input-bordered" required />
+                            <input disabled defaultValue={orderData?.foodName} type="name" placeholder="Food Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input defaultValue={'$' + orderData?.price} type="text" placeholder="Price" className="input input-bordered" required />
+                            <input disabled defaultValue={'$' + orderData?.price} type="text" placeholder="Price" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Quantity</span>
+                                <span className="label-text">Quantity : {itemQuantity} Available</span>
                             </label>
-                            <input name="quantity" defaultValue={itemQuantity} type="text" placeholder="Quantity" className="input input-bordered" required />
+                            <div className="flex items-center gap-5 mb-4">
+                                <h1 onClick={handleDown} className="text-xl font-bold border px-3 hover:bg-gray-400 hover:text-black">-</h1>
+                                <span className="font-bold">{handleQuantity}</span>
+                                <h1 onClick={handleUp} className="text-xl font-bold border px-3 hover:bg-gray-400 hover:text-black">+</h1>
+                            </div>
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -120,7 +136,7 @@ const FoodOrder = () => {
                             </label>
                             <input readOnly defaultValue={user?.displayName} type="text" placeholder="Buyer Name" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control hidden">
                             <label className="label">
                                 <span className="label-text">Buyer Email</span>
                             </label>
