@@ -15,11 +15,11 @@ const AppDownload = () => {
                                 labore porro pariatur harum expedita.
                             </p>
                             <div className='flex items-center gap-5 pb-4'>
-                                <button className='btn bg-yellow-400 lg:px-8'>
+                                <button className='btn hover:bg-black text-black hover:text-white bg-yellow-400 lg:px-8'>
                                     <FaGooglePlay></FaGooglePlay>
                                     <h1>Play Store</h1>
                                 </button>
-                                <button className='btn bg-yellow-400 lg:px-8'>
+                                <button className='btn hover:bg-black text-black hover:text-white bg-yellow-400 lg:px-8'>
                                     <FaApple></FaApple>
                                     <h1>Apple Store</h1>
                                 </button>

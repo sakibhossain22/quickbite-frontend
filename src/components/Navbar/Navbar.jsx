@@ -112,10 +112,10 @@ const Navbar = () => {
                     }>Blog</NavLink>
                     {!user && (
                         <>
-                            <NavLink to='/register' className={({ isActive }) =>
+                            <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)} to='/register' className={({ isActive }) =>
                                 isActive ? "underline text-[#FF5733] animate-pulse" : ""
                             }>Register</NavLink>
-                            <NavLink to='/login' className={({ isActive }) =>
+                            <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)} to='/login' className={({ isActive }) =>
                                 isActive ? "underline text-[#FF5733] animate-pulse" : ""
                             }>Login</NavLink>
                         </>
