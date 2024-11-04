@@ -22,6 +22,7 @@ import EroorPage from './components/ErroPage/ErrorPage.jsx';
 import UpdateFood from './components/UpdateFood/UpdateFood.jsx';
 import Stripe from './components/Stripe/Stripe.jsx';
 import SSLCommerz from './components/SSLCommerz/SSLCommerz.jsx';
+import Dashboard from './components/Dashboard/Dashboard.jsx';
 
 
 const router = createBrowserRouter([
@@ -86,6 +87,25 @@ const router = createBrowserRouter([
         element : <SSLCommerz></SSLCommerz>
       }
     ]
+  },
+  {
+    path: '/dashboard',
+    element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children :  [
+      {
+        path : '/my-order',
+        element : <PrivateRoute><MyOrder></MyOrder></PrivateRoute>
+      },
+      {
+        path : '/my-added-food-items',
+        element : <PrivateRoute><MyAddedFoodItems></MyAddedFoodItems></PrivateRoute>
+      },
+      {
+        path : '/add-food-item',
+        element : <PrivateRoute><AddFoodItems></AddFoodItems></PrivateRoute>
+      }
+    ]
+
   }
 
 ])
