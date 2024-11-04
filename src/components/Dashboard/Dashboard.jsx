@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { HiOutlineBars3 } from "react-icons/hi2";
 
 const Dashboard = () => {
@@ -22,8 +22,26 @@ const Dashboard = () => {
                             <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                             <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                                 {/* Sidebar content here */}
-                                <li><a>Sidebar Item 1</a></li>
-                                <li><a>Sidebar Item 2</a></li>
+                                <div className='flex flex-col gap-5 text-lg justify-between'>
+                                    <NavLink to='/dashboard' className={({ isActive }) =>
+                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
+                                    }>Statistic</NavLink>
+                                    <NavLink to='/dashboard/add-food-item' className={({ isActive }) =>
+                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
+                                    }>Add Food</NavLink>
+                                    <NavLink to='/' className={({ isActive }) =>
+                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
+                                    }>Update Food</NavLink>
+                                    <NavLink to='/' className={({ isActive }) =>
+                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
+                                    }>Added Food</NavLink>
+                                    <NavLink to='/dashboard/my-added-food-items' className={({ isActive }) =>
+                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
+                                    }>Ordered Food</NavLink>
+                                    <NavLink to='/dashboard/my-order' className={({ isActive }) =>
+                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
+                                    }>Home</NavLink>
+                                </div>
                             </ul>
                         </div>
                     </div>
