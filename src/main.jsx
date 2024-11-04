@@ -93,15 +93,15 @@ const router = createBrowserRouter([
     element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children :  [
       {
-        path : '/my-order',
+        path : '/dashboard/my-order',
         element : <PrivateRoute><MyOrder></MyOrder></PrivateRoute>
       },
       {
-        path : '/my-added-food-items',
+        path : '/dashboard/my-added-food-items',
         element : <PrivateRoute><MyAddedFoodItems></MyAddedFoodItems></PrivateRoute>
       },
       {
-        path : '/add-food-item',
+        path : '/dashboard/add-food-item',
         element : <PrivateRoute><AddFoodItems></AddFoodItems></PrivateRoute>
       }
     ]

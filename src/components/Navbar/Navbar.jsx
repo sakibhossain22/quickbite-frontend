@@ -6,7 +6,6 @@ import axios from "axios";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    console.log(isMenuOpen);
     const handleLogOut = () => {
         logOut()
             .then(result => {
@@ -67,6 +66,11 @@ const Navbar = () => {
                         <NavLink to='/blog' className={({ isActive }) =>
                             isActive ? "underline text-[#FF5733] animate-pulse" : ""
                         }>Blog</NavLink>
+                        {
+                            user && <NavLink to='/dashboard' className={({ isActive }) =>
+                                isActive ? "underline text-[#FF5733] animate-pulse" : ""
+                            }>Dashboard</NavLink>
+                        }
                         {!user && (
                             <>
                                 <NavLink to='/register' className={({ isActive }) =>
