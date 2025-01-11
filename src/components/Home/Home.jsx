@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import Invite from "../Invite/Invite";
 import TopFood from "../TopFood/TopFood";
 import Choose from "./Choose/Choose";
+import FoodReviews from "./FoodReview/FoodReview";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Banner></Banner>
             <TopFood></TopFood>
             <Choose></Choose>
+            <FoodReviews></FoodReviews>
             <Invite></Invite>
             <AppDownload></AppDownload>
         </div>
