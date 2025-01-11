@@ -5,6 +5,7 @@ import Invite from "../Invite/Invite";
 import TopFood from "../TopFood/TopFood";
 import Choose from "./Choose/Choose";
 import FoodReviews from "./FoodReview/FoodReview";
+import Chiefs from "./Chief/Chief";
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
             <TopFood></TopFood>
             <Choose></Choose>
             <FoodReviews></FoodReviews>
+            <Chiefs></Chiefs>
             <Invite></Invite>
             <AppDownload></AppDownload>
         </div>

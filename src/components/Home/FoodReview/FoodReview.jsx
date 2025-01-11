@@ -92,7 +92,7 @@ const FoodReviews = () => {
                 {reviews.map((review) => (
                     <div
                         key={review.id}
-                        className="p-4 border h-72 border-red-600 rounded-lg shadow-md bg-white !w-96 mx-4"
+                        className="p-4 border h-72 border-[#FF5733] rounded-lg shadow-md bg-white !w-96 mx-4"
                     >
                         <h3 className="text-xl text-black font-semibold">{review?.title}</h3>
                         <hr className="my-4" />
