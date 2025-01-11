@@ -3,6 +3,7 @@ import AppDownload from "../AppDownload/AppDownload";
 import Banner from "../Banner/Banner";
 import Invite from "../Invite/Invite";
 import TopFood from "../TopFood/TopFood";
+import Choose from "./Choose/Choose";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <TopFood></TopFood>
+            <Choose></Choose>
             <Invite></Invite>
             <AppDownload></AppDownload>
         </div>

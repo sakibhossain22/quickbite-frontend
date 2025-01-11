@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { motion } from 'framer-motion';
-
+import img1 from '../../assets/banner1.jpg'
 const Banner = () => {
     return (
         <div>
@@ -9,7 +9,7 @@ const Banner = () => {
                 animate={{ margin: '0px', opacity: 1 }}
                 transition={{ duration: 1 }}
             >
-                <div className="carousel lg:h-lg-height w-full lg:h-[650px]">
+                <div className="carousel lg:h-lg-height w-full ">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img src="https://static.vecteezy.com/system/resources/previews/032/992/275/large_2x/top-view-of-grilled-chicken-drumsticks-roasted-bbq-on-a-plate-with-blank-space-free-photo.jpg" className="w-full" alt="Slide 1" />
                         <div className="absolute h-full flex justify-center items-center">

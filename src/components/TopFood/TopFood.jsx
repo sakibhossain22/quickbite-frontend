@@ -37,7 +37,7 @@ const TopFood = () => {
               >
                  <div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
-                        {foods?.slice(0, 6).map((food) => (
+                        {foods?.slice(0, 3).map((food) => (
                             <div key={food._id} className=" border border-gray-600 p-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
                                 <img className="w-full h-48 object-cover mb-4 rounded-lg" src={food?.foodImage} alt={food?.foodName} />
                                 <h1 className="text-xl font-semibold mb-2">{food?.foodName}</h1>
