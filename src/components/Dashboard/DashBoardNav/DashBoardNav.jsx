@@ -6,9 +6,11 @@ const DashboardNav = () => {
     const { user, logOut } = useContext(AuthContext)
 
     const navLink = <>
-        <NavLink to='/dashboard/home'>Home</NavLink>
-        <NavLink to='/dashboard/add-task'>Add Task</NavLink>
-        <NavLink to='/dashboard/tasks'>All Task</NavLink>
+        <NavLink to='/dashboard/home'>Statistics</NavLink>
+        <NavLink to='/dashboard/add-food-item'>Add Task</NavLink>
+        <NavLink to='/dashboard/my-order'>All Task</NavLink>
+        <NavLink to='/dashboard/my-added-food-items'>All Task</NavLink>
+        <NavLink to='/'>Home</NavLink>
     </>
     return (
         <div>
@@ -22,7 +24,7 @@ const DashboardNav = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Tasky</a>
+                    <a className="btn btn-ghost text-xl">Quick Bite</a>
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

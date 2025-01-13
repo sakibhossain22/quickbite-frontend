@@ -15,7 +15,7 @@ const Dashboard = () => {
       <div className='hidden lg:block'>
         <div className='grid grid-cols-12 mr-2'>
           <div className='col-span-3 h-screen '>
-            <div className="fixed bg-[#be9a0b] h-screen">
+            <div className="fixed bg-[#FF5733] h-screen">
               <div className="mx-10 text-white">
                 <div className="w-full flex gap-4 items-center  text-center font-bold my-5">
                   <img className='rounded-full w-10' src={'https://i.ibb.co/fGmBVTV/logo.jpg'} alt="" />
@@ -28,7 +28,7 @@ const Dashboard = () => {
                     isPending ? "pending" : isActive ? "text-black" : ""
                   } to='/dashboard/home'>
                     <div className='flex items-center gap-3'>
-                      <IoAddCircle className="text-2xl"></IoAddCircle>
+                      <IoStatsChart className="text-2xl"></IoStatsChart>
                       <span className="text-xl">Statistics</span>
                     </div>
                   </NavLink>
