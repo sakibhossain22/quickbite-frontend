@@ -100,7 +100,7 @@ const router = createBrowserRouter([
         element : <PrivateRoute><MyOrder></MyOrder></PrivateRoute>
       },
       {
-        path : '/dashboard',
+        path : '/dashboard/home',
         element : <PrivateRoute><Statistics></Statistics></PrivateRoute>
       },
       {

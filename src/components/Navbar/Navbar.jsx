@@ -65,7 +65,7 @@ const Navbar = () => {
                         }>All Food</NavLink>
                         
                         {
-                            user && <NavLink to='/dashboard' className={({ isActive }) =>
+                            user && <NavLink to='/dashboard/home' className={({ isActive }) =>
                                 isActive ? "underline text-[#FF5733] animate-pulse" : ""
                             }>Dashboard</NavLink>
                         }
@@ -81,18 +81,13 @@ const Navbar = () => {
                         )}
                         {user && (
                             <div className="flex items-center gap-4">
-                                <div className="dropdown dropdown-end">
+                                <div className="">
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
                                             <img src={user?.photoURL} alt="User Avatar" />
                                         </div>
                                     </label>
-                                    <ul tabIndex={0} className="mt-3 z-10 p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
-                                        <NavLink to='/my-added-food-items' className="rounded-lg px-2 hover:bg-white py-2">My added food items</NavLink>
-                                        <NavLink to='/add-food-item' className="rounded-lg px-2 hover:bg-white py-2">Add a food item</NavLink>
-                                        <NavLink to='/my-order' className="rounded-lg px-2 hover:bg-white py-2">My ordered food items</NavLink>
-                                        <button className="lg:hidden md:hidden py-2 px-3 rounded bg-[#FF5733] text-white" onClick={handleLogOut}>Log Out</button>
-                                    </ul>
+                                    
                                 </div>
                                 <button className="hidden md:block lg:block py-2 px-3 rounded bg-[#FF5733] text-white" onClick={handleLogOut}>Log Out</button>
                             </div>
@@ -109,6 +104,9 @@ const Navbar = () => {
                     <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)} to='/all-food-items' className={({ isActive }) =>
                         isActive ? "underline text-[#FF5733] animate-pulse" : ""
                     }>All Food</NavLink>
+                    <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)} to='/dashboard/home' className={({ isActive }) =>
+                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
+                    }>Dashboard</NavLink>
                     {!user && (
                         <>
                             <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)} to='/register' className={({ isActive }) =>
@@ -127,12 +125,7 @@ const Navbar = () => {
                                         <img src={user?.photoURL} alt="User Avatar" />
                                     </div>
                                 </label>
-                                <ul tabIndex={0} className="mt-3 z-10 p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
-                                    <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)}  to='/my-added-food-items' className="rounded-lg px-2 hover:bg-white py-2">My added food items</NavLink>
-                                    <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)}  to='/add-food-item' className="rounded-lg px-2 hover:bg-white py-2">Add a food item</NavLink>
-                                    <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)}  to='/my-order' className="rounded-lg px-2 hover:bg-white py-2">My ordered food items</NavLink>
-                                    <button className="lg:hidden md:hidden py-2 px-3 rounded bg-[#FF5733] text-white" onClick={handleLogOut}>Log Out</button>
-                                </ul>
+                                
                             </div>
                             <button className="hidden md:block lg:block py-2 px-3 rounded bg-[#FF5733] text-white" onClick={handleLogOut}>Log Out</button>
                         </div>

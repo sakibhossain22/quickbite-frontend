@@ -1,203 +1,89 @@
-import React, { useContext, useState } from 'react';
+import { useContext } from 'react';
+import { IoStatsChart, IoAddCircle, IoAirplane  } from "react-icons/io5";
 import { NavLink, Outlet } from 'react-router-dom';
-import { HiOutlineBars3 } from "react-icons/hi2";
+import { FaArrowUp, FaCartArrowDown, FaHome, FaPenAlt, FaShoppingCart, FaTasks } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import DashboardNav from './DashBoardNav/DashBoardNav';
 
 const Dashboard = () => {
-    const { user } = useContext(AuthContext)
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    console.log(user);
-    // Function to handle closing the drawer when a NavLink is clicked
-    const handleNavLinkClick = () => {
-        setDrawerOpen(false);
-    };
+  const { user } = useContext(AuthContext)
 
-    return (
-        <div className='max-w-7xl mx-auto'>
-            <div className='lg:hidden md:hidden'>
-                <div className='mx-5'>
-                    <div>
-                        <div className="drawer">
-                            <input
-                                id="my-drawer"
-                                type="checkbox"
-                                className="drawer-toggle"
-                                checked={drawerOpen}
-                                onChange={() => setDrawerOpen(!drawerOpen)}
-                            />
-                            <div className="drawer-content">
-                                {/* Page content here */}
-                                <label htmlFor="my-drawer" className="cursor-pointer drawer-button">
-                                    <HiOutlineBars3 className='text-3xl'></HiOutlineBars3>
-                                </label>
-                                <div>
-                                    {/* Other content */}
-                                </div>
-                            </div>
-                            <div className="drawer-side">
-                                <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay" onClick={handleNavLinkClick}></label>
-                                <ul className="menu bg-base-200 text-base-content min-h-full w-48 lg:w-72 md:w-72 p-4">
-                                    {/* Sidebar content here */}
-                                    <div className='flex flex-col gap-5 text-lg justify-between'>
-                                        <NavLink
-                                            to='/dashboard'
-                                            className={({ isActive }) =>
-                                                isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                            }
-                                            onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                        >
-                                            Statistic
-                                        </NavLink>
-                                        <NavLink
-                                            to='/dashboard/add-food-item'
-                                            className={({ isActive }) =>
-                                                isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                            }
-                                            onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                        >
-                                            Add Food
-                                        </NavLink>
-                                        <NavLink
-                                            to='/dashboard/update/:id'
-                                            className={({ isActive }) =>
-                                                isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                            }
-                                            onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                        >
-                                            Update Food
-                                        </NavLink>
-                                        <NavLink
-                                            to='/'
-                                            className={({ isActive }) =>
-                                                isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                            }
-                                            onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                        >
-                                            Added Food
-                                        </NavLink>
-                                        <NavLink
-                                            to='/dashboard/my-added-food-items'
-                                            className={({ isActive }) =>
-                                                isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                            }
-                                            onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                        >
-                                            Ordered Food
-                                        </NavLink>
-                                        <NavLink
-                                            to='/dashboard/my-order'
-                                            className={({ isActive }) =>
-                                                isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                            }
-                                            onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                        >
-                                            Home
-                                        </NavLink>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
+
+
+  return (
+    <div>
+      <div className='hidden lg:block'>
+        <div className='grid grid-cols-12 mr-2'>
+          <div className='col-span-3 h-screen '>
+            <div className="fixed bg-[#be9a0b] h-screen">
+              <div className="mx-10 text-white">
+                <div className="w-full flex gap-4 items-center  text-center font-bold my-5">
+                  <img className='rounded-full w-10' src={'https://i.ibb.co/fGmBVTV/logo.jpg'} alt="" />
+                  <h1 className="text-xl text-white">Quick Bite</h1>
+                </div>
+
+                <div className="flex flex-col gap-5">
+
+                  <NavLink className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-black" : ""
+                  } to='/dashboard/home'>
+                    <div className='flex items-center gap-3'>
+                      <IoAddCircle className="text-2xl"></IoAddCircle>
+                      <span className="text-xl">Statistics</span>
                     </div>
+                  </NavLink>
+                  <NavLink className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-black" : ""
+                  } to='/dashboard/add-food-item'>
+                    <div className='flex items-center gap-3'>
+                      <IoAddCircle className="text-2xl"></IoAddCircle>
+                      <span className="text-xl">Add Product</span>
+                    </div>
+                  </NavLink>
+                  <NavLink className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-black" : ""
+                  } to='/dashboard/my-added-food-items'>
+                    <div className='flex items-center gap-3'>
+                      <IoAirplane className="text-2xl"></IoAirplane>
+                      <span className="text-xl">My Product</span>
+                    </div>
+                  </NavLink>
+                  <NavLink className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-black" : ""
+                  } to='/dashboard/my-order'>
+                    <div className='flex items-center gap-3'>
+                      <FaCartArrowDown className="text-2xl"></FaCartArrowDown>
+                      <span className="text-xl">My Order</span>
+                    </div>
+                  </NavLink>
+                  <NavLink className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-black" : ""
+                  } to='/'>
+                    <div className='flex items-center gap-3'>
+                      <FaHome className="text-2xl"></FaHome>
+                      <span className="text-xl">Home</span>
+                    </div>
+                  </NavLink>
                 </div>
-                <div>
-                    <Outlet></Outlet>
-                </div>
+
+              </div>
             </div>
-            {/* Dashboard for Large Device */}
-            <div className='hidden lg:block'>
-                <div className='grid gap-2 grid-cols-12'>
-                    <div className='col-span-2 bg-orange-400 h-screen'>
-                        <div>
-                            <div className='flex flex-col gap-5 text-lg justify-between'>
-                                <NavLink
-                                    to='/dashboard'
-                                    className={({ isActive }) =>
-                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                    }
-                                    onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                >
-                                    Statistic
-                                </NavLink>
-                                <NavLink
-                                    to='/dashboard/add-food-item'
-                                    className={({ isActive }) =>
-                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                    }
-                                    onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                >
-                                    Add Food
-                                </NavLink>
-                                <NavLink
-                                    to='/dashboard/update/:id'
-                                    className={({ isActive }) =>
-                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                    }
-                                    onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                >
-                                    Update Food
-                                </NavLink>
-                                <NavLink
-                                    to='/'
-                                    className={({ isActive }) =>
-                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                    }
-                                    onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                >
-                                    Added Food
-                                </NavLink>
-                                <NavLink
-                                    to='/dashboard/my-added-food-items'
-                                    className={({ isActive }) =>
-                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                    }
-                                    onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                >
-                                    Ordered Food
-                                </NavLink>
-                                <NavLink
-                                    to='/dashboard/my-order'
-                                    className={({ isActive }) =>
-                                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                                    }
-                                    onClick={handleNavLinkClick}  // Close drawer on NavLink click
-                                >
-                                    Home
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-span-10 my-2'>
-                        <div>
-                            <nav>
-                                <div className='flex gap-5 mx-4 items-center justify-between'>
-                                    <label className="input flex flex-1 items-center mt-2 gap-2">
-                                        <input type="text" className="grow rounded px-2 py-4" placeholder="Search . . . . ." />
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 16 16"
-                                            fill="currentColor"
-                                            className="h-4 w-4 opacity-70">
-                                            <path
-                                                fillRule="evenodd"
-                                                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                                                clipRule="evenodd" />
-                                        </svg>
-                                    </label>
-                                    <div>
-                                        <div className='flex items-center gap-3'>
-                                            <img className='w-10 rounded-full' src={user?.photoURL} alt="" />
-                                            <h1 className='text-lg'>{user?.displayName}</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </nav>
-                        </div>
-                        <Outlet></Outlet>
-                    </div>
-                </div>
-            </div>
+          </div>
+          <div className='col-span-9 mt-2'>
+            <Outlet></Outlet>
+          </div>
         </div>
-    );
+      </div>
+      <div className='lg:hidden block'>
+        <div>
+          <DashboardNav></DashboardNav>
+        </div>
+        <div className='md:mx-5 mx-2'>
+          <Outlet></Outlet>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Dashboard;
