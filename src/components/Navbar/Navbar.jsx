@@ -63,9 +63,7 @@ const Navbar = () => {
                         <NavLink to='/all-food-items' className={({ isActive }) =>
                             isActive ? "underline text-[#FF5733] animate-pulse" : ""
                         }>All Food</NavLink>
-                        <NavLink to='/blog' className={({ isActive }) =>
-                            isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                        }>Blog</NavLink>
+                        
                         {
                             user && <NavLink to='/dashboard' className={({ isActive }) =>
                                 isActive ? "underline text-[#FF5733] animate-pulse" : ""
@@ -111,9 +109,6 @@ const Navbar = () => {
                     <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)} to='/all-food-items' className={({ isActive }) =>
                         isActive ? "underline text-[#FF5733] animate-pulse" : ""
                     }>All Food</NavLink>
-                    <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)} to='/blog' className={({ isActive }) =>
-                        isActive ? "underline text-[#FF5733] animate-pulse" : ""
-                    }>Blog</NavLink>
                     {!user && (
                         <>
                             <NavLink onClick={()=> setIsMenuOpen(!isMenuOpen)} to='/register' className={({ isActive }) =>

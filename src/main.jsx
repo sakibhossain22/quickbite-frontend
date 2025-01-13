@@ -23,6 +23,8 @@ import UpdateFood from './components/UpdateFood/UpdateFood.jsx';
 import Stripe from './components/Stripe/Stripe.jsx';
 import SSLCommerz from './components/SSLCommerz/SSLCommerz.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
+import Statistics from './components/Dashboard/Statistics/Statistics.jsx';
+import DashError from './components/Dashboard/DashError/DashError.jsx';
 
 
 const router = createBrowserRouter([
@@ -91,10 +93,15 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    errorElement : <DashError></DashError>,
     children :  [
       {
         path : '/dashboard/my-order',
         element : <PrivateRoute><MyOrder></MyOrder></PrivateRoute>
+      },
+      {
+        path : '/dashboard',
+        element : <PrivateRoute><Statistics></Statistics></PrivateRoute>
       },
       {
         path : '/dashboard/my-added-food-items',
@@ -103,6 +110,16 @@ const router = createBrowserRouter([
       {
         path : '/dashboard/add-food-item',
         element : <PrivateRoute><AddFoodItems></AddFoodItems></PrivateRoute>
+      },
+      {
+        path: '/dashboard/food-purchase/:id',
+        element: <PrivateRoute><FoodOrder></FoodOrder></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://quickbite-server.vercel.app/details/${params.id}`)
+      },
+      {
+        path: '/dashboard/update/:id',
+        element: <UpdateFood></UpdateFood>,
+        loader: ({ params }) => fetch(`https://quickbite-server.vercel.app/single/${params.id}`)
       }
     ]
 
