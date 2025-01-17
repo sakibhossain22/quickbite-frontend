@@ -7,7 +7,6 @@ import axios from "axios";
 
 const Statistics = () => {
     const [cartItem, setCartItem] = useState(0)
-    const data = [10, 44, 875, 454,]
     const { user } = useContext(AuthContext)
     const [foods, setFoods] = useState([])
     const [recentData, setRecentData] = useState(0)
@@ -92,7 +91,6 @@ const Statistics = () => {
                     <div className="my-5">
                         <div className="flex items-center justify-between">
                             <h1 className="text-xl font-bold border-l-2 pl-3 border-red-600">Recent Activity</h1>
-                            <Link to='/dashboard/add-task' className="bg-green-500 px-6 py-2 rounded text-white font-bold">Create</Link>
                         </div>
                         <div className="divider"></div>
                         <div>
@@ -101,31 +99,21 @@ const Statistics = () => {
                                 <table className="table">
                                     {/* head */}
                                     <thead>
-                                        <tr className="bg-gray-300">
-                                            <th>Title</th>
-                                            <th>Status</th>
-                                            <th>Deadline</th>
-                                            <th>Edit</th>
+                                        <tr className="bg-gray-300 text-black">
+                                            <th>Name / Trans</th>
+                                            <th>Price / Payment Amount</th>
+                                            <th>Category / Currency</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {/* row 1 */}
                                         {
-                                            Array.isArray(data) &&
-                                            data?.map((stat) => (
+                                            Array.isArray(recentData) &&
+                                            recentData?.map((stat) => (
                                                 <tr key={stat?._id}>
-                                                    <td className="font-bold">{stat?.title}</td>
-                                                    <td>{stat?.status}</td>
-                                                    <td>{stat?.deadline}</td>
-                                                    <td> {/* Place the div here, within a td element */}
-                                                        <div className='flex mt-1 items-center'>
-                                                            <Link to={`/dashboard/updatetask/${stat?._id}`}>
-                                                                <button className='lg:col-span-2 md:col-span-2 col-span-3 py-2 bg-gray-300 px-3 lg:px-6'>
-                                                                    <FaPen className='text-center mx-auto'></FaPen>
-                                                                </button>
-                                                            </Link>
-                                                        </div>
-                                                    </td>
+                                                    <td className="font-bold">{stat?.foodName || stat?.paymentIntent?.id}</td>
+                                                    <td>{stat?.price || stat?.paymentIntent?.amount}</td>
+                                                    <td>{stat?.foodCategory || stat?.paymentIntent?.currency}</td>
                                                 </tr>
                                             ))
                                         }
