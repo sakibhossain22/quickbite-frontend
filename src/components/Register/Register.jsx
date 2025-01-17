@@ -38,7 +38,7 @@ const Register = () => {
                 .then(res => console.log('updated'))
                 .catch(error => console.log(error))
 
-                axios.post(`https://quickbite-server.vercel.app/user`, { name, email, password, photo })
+                axios.post(`http://localhost:5000/user`, { name, email, password, photo })
                     .then(res => {
                         console.log(res.data);
                     })

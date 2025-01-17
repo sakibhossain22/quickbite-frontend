@@ -18,7 +18,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 if(user){
-                    axios.post('https://quickbite-server.vercel.app/jwt', {user : user?.email}, {
+                    axios.post('http://localhost:5000/jwt', {user : user?.email}, {
                         withCredentials: true
                     })
                 }
@@ -53,7 +53,7 @@ const Login = () => {
                 }
                 const loggedUser = { email: resUser?.email }
                 console.log(loggedUser);
-                axios.post('https://quickbite-server.vercel.app/jwt', {user : email}, {
+                axios.post('http://localhost:5000/jwt', {user : email}, {
                     withCredentials: true
                 })
                 .then(res => {

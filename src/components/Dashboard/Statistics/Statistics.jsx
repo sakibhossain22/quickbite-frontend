@@ -10,11 +10,12 @@ const Statistics = () => {
     const data = [10, 44, 875, 454,]
     const { user } = useContext(AuthContext)
     const [foods, setFoods] = useState([])
-
+    const [recentData, setRecentData] = useState(0)
+    console.log(recentData);
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const response = await axios.get(`https://quickbite-server.vercel.app/cart/${user?.email}`, { withCredentials: true });
+                const response = await axios.get(`http://localhost:5000/cart/${user?.email}`, { withCredentials: true });
                 setCartItem(response.data);
             } catch (error) {
                 console.error("Failed to fetch cart items:", error);
@@ -31,13 +32,28 @@ const Statistics = () => {
         }
     }, [user?.email]);
     useEffect(() => {
-        axios.get(`https://quickbite-server.vercel.app/update/${user?.email}`, { withCredentials: true })
+        axios.get(`http://localhost:5000/update/${user?.email}`, { withCredentials: true })
             .then(res => {
                 setFoods(res.data)
             })
     }, [user?.email])
+    useEffect(() => {
+        if (!user?.email) return; // Exit early if user or email is not defined
+
+        const fetchRecentActivity = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/recent-activity?user=${user?.email}`,);
+                // console.log('Recent Activity:', response.data);
+                setRecentData(response?.data)
+            } catch (error) {
+                console.error('Error fetching recent activity:', error.message);
+            }
+        };
+
+        fetchRecentActivity();
+    }, [user]);
     return (
-        <div>
+        <div className="my-2">
             <div>
                 <div>
                     <div className="lg:flex lg:stats gap-5 shadow">

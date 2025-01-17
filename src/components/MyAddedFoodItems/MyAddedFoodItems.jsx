@@ -12,12 +12,12 @@ const MyAddedFoodItems = () => {
     const [topOrder, setTopOrder] = useState([])
     const [allfoods, setAllFoods] = useState(topOrder)
     useEffect(() => {
-        fetch(`https://quickbite-server.vercel.app/products`)
+        fetch(`http://localhost:5000/products`)
             .then(res => res.json())
             .then(data => setAllFoods(data))
     }, [])
     useEffect(() => {
-        axios.get(`https://quickbite-server.vercel.app/update/${user?.email}`, { withCredentials: true })
+        axios.get(`http://localhost:5000/update/${user?.email}`, { withCredentials: true })
             .then(res => {
                 setFoods(res.data)
             })

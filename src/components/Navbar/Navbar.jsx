@@ -10,7 +10,7 @@ const Navbar = () => {
         logOut()
             .then(result => {
                 console.log(result);
-                axios.post(`https://quickbite-server.vercel.app/logout`, { email: user?.email }, { withCredentials: true })
+                axios.post(`http://localhost:5000/logout`, { email: user?.email }, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     });

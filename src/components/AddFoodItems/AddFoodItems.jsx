@@ -21,7 +21,7 @@ const AddFoodItems = () => {
         const madeBy = form.madeBy.value
         const data = { foodName, country, madeBy, foodImage, foodCategory, description, quantity, price, loggedUser }
         console.log(data);
-        axios.post(`https://quickbite-server.vercel.app/addproduct`, data, { withCredentials: true })
+        axios.post(`http://localhost:5000/addproduct`, data, { withCredentials: true })
             .then(data => {
                 if (data.data.insertedId) {
                     Swal.fire({

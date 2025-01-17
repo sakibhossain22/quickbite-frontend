@@ -84,10 +84,10 @@ const FoodOrder = () => {
         }
 
         
-        axios.post(`https://quickbite-server.vercel.app/order`, order, { withCredentials: true })
+        axios.post(`http://localhost:5000/order`, order, { withCredentials: true })
             .then(res => {
                 if (res.data.insertedId) {
-                    axios.put(`https://quickbite-server.vercel.app/updateOrderCount/${orderData?._id}`, orderCount)
+                    axios.put(`http://localhost:5000/updateOrderCount/${orderData?._id}`, orderCount)
                         .then(res => {
                             console.log(res.data);
                             Swal.fire({

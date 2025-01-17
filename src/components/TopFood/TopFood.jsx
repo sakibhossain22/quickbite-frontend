@@ -16,7 +16,7 @@ const TopFood = () => {
         setTopOrder(sortedFoodArray);
     }, [foods])
     useEffect(() => {
-        fetch(`https://quickbite-server.vercel.app/products`)
+        fetch(`http://localhost:5000/products`)
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [])

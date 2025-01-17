@@ -15,7 +15,7 @@ const AllFoodItems = () => {
   const pages = [...Array(numberOfPages).keys()];
 
   useEffect(() => {
-    axios.get('https://quickbite-server.vercel.app/products-count')
+    axios.get('http://localhost:5000/products-count')
       .then(res => {
         setCount(res.data.count);
       })
@@ -23,7 +23,7 @@ const AllFoodItems = () => {
         console.error('Error fetching product count:', error);
       });
 
-    axios.get(`https://quickbite-server.vercel.app/products?page=${currentPage}&size=${itemPerPage}`,{withCredentials : true})
+    axios.get(`http://localhost:5000/products?page=${currentPage}&size=${itemPerPage}`,{withCredentials : true})
       .then(res => {
         setData(res.data);
         setAllFood(res.data);

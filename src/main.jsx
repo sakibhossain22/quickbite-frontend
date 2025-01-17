@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       {
         path: '/all-food-items',
         element: <AllFoodItems></AllFoodItems>,
-        loader: () => fetch(`https://quickbite-server.vercel.app/products`),
+        loader: () => fetch(`http://localhost:5000/products`),
       },
       {
         path: '/details/:id',
@@ -73,12 +73,12 @@ const router = createBrowserRouter([
       {
         path: '/food-purchase/:id',
         element: <PrivateRoute><FoodOrder></FoodOrder></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://quickbite-server.vercel.app/details/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
       },
       {
         path: '/update/:id',
         element: <UpdateFood></UpdateFood>,
-        loader: ({ params }) => fetch(`https://quickbite-server.vercel.app/single/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/single/${params.id}`)
       },
       {
         path : '/payment-stripe',
@@ -114,12 +114,12 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/food-purchase/:id',
         element: <PrivateRoute><FoodOrder></FoodOrder></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://quickbite-server.vercel.app/details/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
       },
       {
         path: '/dashboard/update/:id',
         element: <UpdateFood></UpdateFood>,
-        loader: ({ params }) => fetch(`https://quickbite-server.vercel.app/single/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/single/${params.id}`)
       }
     ]
 

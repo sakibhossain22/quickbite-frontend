@@ -32,7 +32,7 @@ const UpdateFood = () => {
         console.log(orderCount);
 
         e.preventDefault()
-        axios.put(`https://quickbite-server.vercel.app/updateProduct/${orderData?._id}` , orderCount)
+        axios.put(`http://localhost:5000/updateProduct/${orderData?._id}` , orderCount)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {

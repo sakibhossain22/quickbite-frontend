@@ -8,7 +8,7 @@ const FoodDetails = () => {
     const params = useParams();
 
     useEffect(() => {
-        fetch(`https://quickbite-server.vercel.app/details/${params.id}`)
+        fetch(`http://localhost:5000/details/${params.id}`)
             .then(res => res.json())
             .then(data => {
                 setFood(data);
@@ -16,7 +16,7 @@ const FoodDetails = () => {
     }, [params.id]);
 
     useEffect(() => {
-        fetch(`https://quickbite-server.vercel.app/products`)
+        fetch(`http://localhost:5000/products`)
             .then(res => res.json())
             .then(data => {
                 const sortedFoodArray = data.sort((a, b) => b.orderCount - a.orderCount);

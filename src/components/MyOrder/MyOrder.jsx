@@ -37,11 +37,10 @@ const MyOrder = () => {
     const [topOrder, setTopOrder] = useState([]);
     const [allfoods, setAllFoods] = useState([]);
     const [paymentMode, setPaymentMode] = useState("");
-    console.log(balance);
     useEffect(() => {
         const fetchAllFoods = async () => {
             try {
-                const response = await fetch(`https://quickbite-server.vercel.app/products`);
+                const response = await fetch(`http://localhost:5000/products`);
                 const data = await response.json();
                 setAllFoods(data);
             } catch (error) {
@@ -60,7 +59,7 @@ const MyOrder = () => {
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const response = await axios.get(`https://quickbite-server.vercel.app/cart/${user?.email}`, { withCredentials: true });
+                const response = await axios.get(`http://localhost:5000/cart/${user?.email}`, { withCredentials: true });
                 setFoods(response.data);
             } catch (error) {
                 console.error("Failed to fetch cart items:", error);
@@ -119,7 +118,7 @@ const MyOrder = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://quickbite-server.vercel.app/cart/${id}`)
+                axios.delete(`http://localhost:5000/cart/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -158,17 +157,19 @@ const MyOrder = () => {
         try {
             let response;
             if (paymentMode === "Stripe") {
-                response = await axios.post("https://quickbite-server.vercel.app/stripe-payment", {
+                response = await axios.post("http://localhost:5000/stripe-payment", {
                     amount: parseInt(balance).toFixed(2),
-                    user: user,
+                    user: user?.email,
+                    foods
                 });
             }
 
             if (response) {
-                console.log(response.data.clientSecret);
+                console.log(response.data);
                 Swal.fire({
                     title: "Payment Successful",
-                    text: `Transaction Id : ${response.data.clientSecret}`,
+                    text: `Transaction Id : ${response?.data?.id}
+                    Amount : ${response?.data?.amount}`,
                     icon: "success"
                 });
             } else {
